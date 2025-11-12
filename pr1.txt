@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+class student
+{
+    public:
+        int roll_no;
+        string name;
+        float marks;
+    public:
+            void input()
+            {
+                cout<<"Enter roll no:";
+                cin>>roll_no;
+                cout<<"Enter name:";
+                cin>>name;
+                cout<<"Enter marks:";
+                cin>>marks;
+            
+            }
+            void display()
+            {
+                cout<<"Student Details are:";
+                cout<<"\nroll no s:"<<roll_no;
+                cout<<"\nname is:"<<name;
+                cout<<"\nmarks are:"<<marks;
+            }
+};
+int main() {
+   student s;
+   s.input();
+   s.display();
+   return 0;
+
+   
+}
+
+Output:
+Enter roll no:4
+Enter name:shreya
+Enter marks:98.89
+Student Details are:
+roll no s:4
+name is:shreya
+marks are:98.89
