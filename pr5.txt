@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+class Shape
+{
+    public:
+    void area(int length, int width)
+    {
+        int res;
+        res=length*width;
+        cout<<"Area of Rectangle:"<<res<<endl;
+    }
+    void area(double radius)
+    {
+        double res;
+        res=3.14*radius*radius;
+        cout<<"Area of Circle:"<<res<<endl;
+    }
+    void area(int side)
+    {
+        int res;
+        res=side*side;
+        cout<<"Area of Sqaure:"<<res<<endl;
+    }
+    void area(double base, double height)
+    {
+        double res;
+        res=(base*height)/2;
+        cout<<"Area of Traingle:"<<res<<endl;
+    }
+};
+int main()
+{
+    Shape s;
+    s.area(22,16);
+    s.area(4);
+    s.area(5.0);
+    s.area(3.0,4.0);
+    return 0;
+}
+
+Output:
+Area of Rectangle:352
+Area of Sqaure:16
+Area of Circle:78.5
+Area of Traingle:6

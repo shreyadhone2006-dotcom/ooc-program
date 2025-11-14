@@ -1,0 +1,87 @@
+#include <iostream>
+using namespace std;
+class Student
+{
+    public:
+    string name;
+    int roll_no;
+    void accept()
+    {
+        cout<<"Enter student name:";
+        cin>>name;
+        cout<<"Enter roll no:";
+        cin>>roll_no;
+    }
+    void display()
+    {
+        cout<<"\nStudent Name:"<<name<<endl;
+        cout<<"Student Roll No:"<<roll_no<<endl;
+    }
+};
+class StudentExam:public Student
+{
+    public:
+    int m1,m2,m3,m4,m5;
+    void input()
+    {
+        cout<<"\nEnter marks1:";
+        cin>>m1;
+        cout<<"Enter marks2:";
+        cin>>m2;
+        cout<<"Enter marks3:";
+        cin>>m3;
+        cout<<"Enter marks4:";
+        cin>>m4;
+        cout<<"Enter marks5:";
+        cin>>m5;
+    }
+    void disp()
+    {
+        cout<<"\nMarks1:"<<m1<<endl;
+        cout<<"Marks2:"<<m2<<endl;
+        cout<<"Marks3:"<<m3<<endl;
+        cout<<"Marks4:"<<m4<<endl;
+        cout<<"Marks5:"<<m5<<endl;
+    }
+};
+class Result:public StudentExam
+{
+    public:
+    double per;
+    void calculate()
+    {
+        per=(m1+m2+m3+m4+m5)/5;
+        cout<<"\nPercentage:"<<per<<endl;
+    }
+};
+int main()
+{
+    Result r;
+    r.accept();
+    r.input();
+    r.display();
+    r.disp();
+    r.calculate();
+    return 0;
+}
+
+Output:
+Enter student name:Shreya
+Enter roll no:129
+
+Enter marks1:92
+Enter marks2:90
+Enter marks3:87
+Enter marks4:95
+Enter marks5:89
+
+Student Name:Shreya
+Student Roll No:129
+
+Marks1:92
+Marks2:90
+Marks3:87
+Marks4:95
+Marks5:89
+
+Percentage:90

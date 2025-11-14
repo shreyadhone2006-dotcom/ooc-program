@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+class Person
+{
+    public:
+    void display()
+    {
+        cout<<"This is Person class"<<endl;
+    }
+};
+class Employee:public Person
+{
+    public:
+    void emp()
+    {
+        cout<<"This is Employee class"<<endl;
+    }
+};
+class Manager:public Person
+{
+    public:
+    void manage()
+    {
+        cout<<"This is Manager class"<<endl;
+    }
+};
+int main()
+{
+    Employee e;
+    e.display();
+    e.emp();
+    Manager m;
+    m.display();
+    m.manage();
+    return 0;
+}
+
+Output:
+This is Person class
+This is Employee class
+This is Person class
+This is Manager class
