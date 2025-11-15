@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+template<typename T>
+inline T const& maxValue(T const& a, T const& b)
+{
+    return a < b ? b : a;
+}
+
+int main()
+{
+    int i = 39;
+    int j = 20;
+    cout << "max(i,j): " << maxValue(i, j) << endl;
+
+    double f1 = 13.5;
+    double f2 = 20.7;
+    cout << "max(f1,f2): " << maxValue(f1, f2) << endl;
+
+    string s1 = "Hello";
+    string s2 = "World";
+    cout << "max(s1,s2): " << maxValue(s1, s2) << endl;
+
+    return 0;
+}
+
+Output:
+max(i,j): 39
+max(f1,f2): 20.7
+max(s1,s2): World

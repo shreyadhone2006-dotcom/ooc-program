@@ -1,0 +1,162 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Employee
+{
+    private:
+        int no;
+        string name;
+
+    public:
+        virtual void displayInput()     // renamed first display
+        {
+            cout<<"Enter Employee No:";
+            cin>>no;
+            cout<<"Enter Employee Name:";
+            cin>>name;
+        }
+
+        virtual void display()
+        {
+            cout<<"Employee No is:"<<no<<endl;
+            cout<<"Employee Name is:"<<name<<endl;
+        }
+
+        virtual void salary() {}   // *** FIX ADDED HERE ***
+};
+
+class SalariedEmployee:public Employee
+{
+    private:
+        double monthlySalary;
+
+    public:
+        void salary()
+        {
+            displayInput();
+            cout<<"Enter employee salary:";
+            cin>>monthlySalary;
+        }
+
+        void display()
+        {
+            cout<<"Salaried Employee:"<<endl;
+            Employee::display();
+            cout<<"Salary:"<<monthlySalary<<endl;
+        }
+};
+
+class HourlyEmployee:public Employee
+{
+    private:
+        double hours;
+        double rate;
+
+    public:
+        void salary()
+        {
+            displayInput();
+            cout<<"Enter hours:";
+            cin>>hours;
+            cout<<"Enter hourly salary rate:";
+            cin>>rate;
+        }
+
+        void display()
+        {
+            cout<<"Hourly Employee:"<<endl;
+            Employee::display();
+            cout<<"Hours:"<<hours<<endl;
+            cout<<"Hourly Salary rate:"<<rate<<endl;
+            cout<<"Salary:"<<(rate*hours)<<endl;
+        }
+};
+
+class CommisionedEmployee:public Employee
+{
+    private:
+        double baseSalary;
+        int overtime;
+
+    public:
+        void salary()
+        {
+            displayInput();
+            cout<<"Enter salary:";
+            cin>>baseSalary;
+            cout<<"Enter overtime:";
+            cin>>overtime;
+        }
+
+        void display()
+        {
+            cout<<"Commisioned Employee:"<<endl;
+            Employee::display();
+            cout<<"Salary:"<<baseSalary<<endl;
+            cout<<"Overtime:"<<overtime<<endl;
+            cout<<"Total Salary:"<<(baseSalary+(overtime*15));
+        }
+};
+
+int main()
+{
+    Employee* employee[3];
+
+    SalariedEmployee newSalariedEmployee;
+    HourlyEmployee newHourlyEmployee;
+    CommisionedEmployee newCommisionedEmployee;
+
+    employee[0] = &newSalariedEmployee;
+    employee[1] = &newHourlyEmployee;
+    employee[2] = &newCommisionedEmployee;
+
+    for(int i = 0; i < 3; i++)
+    {
+        employee[i]->salary();  // now works!
+        cout << endl;
+    }
+
+    for(int i = 0; i < 3; i++)
+    {
+        employee[i]->display();
+        cout << endl;
+    }
+
+    return 0;
+}
+
+
+Output:
+Enter Employee No:34
+Enter Employee Name:Sayali
+Enter employee salary:5000
+
+Enter Employee No:45
+Enter Employee Name:Shreya
+Enter hours:8
+Enter hourly salary rate:5
+
+Enter Employee No:78
+Enter Employee Name:Anushka
+Enter salary:8000
+Enter overtime:12
+
+Salaried Employee:
+Employee No is:34
+Employee Name is:Sayali
+Salary:5000
+
+Hourly Employee:
+Employee No is:45
+Employee Name is:Shreya
+Hours:8
+Hourly Salary rate:5
+Salary:40
+
+Commisioned Employee:
+Employee No is:78
+Employee Name is:Anushka
+Salary:8000
+Overtime:12
+Total Salary:8180

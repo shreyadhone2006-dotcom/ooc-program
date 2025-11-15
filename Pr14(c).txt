@@ -1,0 +1,16 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+	vector<int>numbers={1,100,10,70,100};
+	cout<<"numbers are:";
+	for(auto &num:numbers)
+	{
+		cout<<num<<",";
+	}
+	return 0;
+}
+
+Output:
+numbers are:1,100,10,70,100,
